@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs For Class phpregedit</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><!-- Start of Class Data -->
+<h2>
+	Class phpregedit
+</h2> (line <span class="linenumber"><a href="..//__filesource/fsource_phpreg__phpreg.php.html#a278">278</a></span>)
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ));
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<pre>
+<a href="../phpreg/phpreg.html">phpreg</a>
+   |
+   --phpregedit</pre>
+<p>
+	<b><i>Located in File: <a href="_phpreg_php.html">/phpreg.php</a></i></b><br>
+</p>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>Editor class provides a GUI interface to create,  and manage phpregistry files.</h5>
+<ul>
+		<li><strong>version:</strong> - 0.1</li>
+		<li><strong>author:</strong> - Richard Standbrook &lt;<a href="mailto:richard@koorb.co.uk">mailto:richard@koorb.co.uk</a>&gt;</li>
+	</ul>
+<br /><hr />
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+<h2 class="tab">Class Variables</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="var-title">
+    <span class="var-type">string</span>
+    <a href="#var$current_key" title="details" class="property"><strong>$current_key</strong></a>
+</div>
+<hr />
+<a name="var$current_key" id="var$current_key"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$current_key</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_phpreg__phpreg.php.html#a284">284</a></span>)
+ </h4>
+<h4>Data type : string</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+		<li><strong>var:</strong> - Current key</li>
+		<li><strong>access:</strong> - private</li>
+	</ul>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+</div>
+<div class="tab-page" id="tabPage2">
+<h2 class="tab">Method Detail</h2>
+<!-- ============ METHOD DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="method-summary">
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodchange_current_key" title="details" class="method-name">change_current_key</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodcontent" title="details" class="method-name">content</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">0</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodeditor" title="details" class="method-name">editor</a>
+        ()
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodkey_path_links" title="details" class="method-name">key_path_links</a>
+        ()
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodopenform" title="details" class="method-name">openform</a>
+        ()
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetform" title="details" class="method-name">setform</a>
+        ()
+        </div>
+</div>
+<hr />
+<A NAME='method_detail'></A>
+
+
+<a name="methodchange_current_key" id="methodchange_current_key"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method change_current_key</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_phpreg__phpreg.php.html#a494">494</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>change_current_key(
+string
+$key)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+<h5>Change the current key path</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $key</strong>: name of key</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - private</li>
+		</ul>
+</div>
+<a name="methodcontent" id="methodcontent"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method content</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_phpreg__phpreg.php.html#a507">507</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>content(
+string
+0)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+<h5>Outputs key settings and handles actions to update, add, remove and save</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string 0</strong>: name of key to start spidering definitions</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - private</li>
+		</ul>
+</div>
+<a name="methodeditor" id="methodeditor"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method editor</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_phpreg__phpreg.php.html#a291">291</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>editor(
+)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+<h5>Handles actions to display, update, add, remove and save phpregistry</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+</div>
+<a name="methodkey_path_links" id="methodkey_path_links"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method key_path_links</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_phpreg__phpreg.php.html#a400">400</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>key_path_links(
+)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+<h5>returns a html set of breadcrum links for the current path</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - private</li>
+		</ul>
+</div>
+<a name="methodopenform" id="methodopenform"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method openform</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_phpreg__phpreg.php.html#a430">430</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>openform(
+)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+<h5>Handles opening a phpreg file</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - private</li>
+		</ul>
+</div>
+<a name="methodsetform" id="methodsetform"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setform</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_phpreg__phpreg.php.html#a471">471</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>setform(
+)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+<h5>Handles setting keys and values in a phpreg file</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - private</li>
+		</ul>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script></div>
+<div class="tab-page" id="iVars">
+<h2 class="tab">Inherited Variables</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iVars" ) );</script>
+<!-- =========== VAR INHERITED SUMMARY =========== -->
+<A NAME='var_inherited_summary'><!-- --></A>
+<h3>Inherited Class Variable Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../phpreg/phpreg.html">phpreg</a></h4>
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../phpreg/phpreg.html#var$compression">phpreg::$compression</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../phpreg/phpreg.html#var$phpreg">phpreg::$phpreg</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../phpreg/phpreg.html#var$valid_key_pattern">phpreg::$valid_key_pattern</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../phpreg/phpreg.html#var$version">phpreg::$version</a></strong> - 
+	</h4> 
+		</div>
+<div class="tab-page" id="iMethods">
+<h2 class="tab">Inherited Methods</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iMethods" ) );</script>
+<!-- =========== INHERITED METHOD SUMMARY =========== -->
+<A NAME='functions_inherited'><!-- --></A>
+<h3>Inherited Method Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../phpreg/phpreg.html">phpreg</a></h4>
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../phpreg/phpreg.html#methodconvert_key_path">phpreg::convert_key_path()</a></strong> - Replace path seperators `/` for eval'ing
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../phpreg/phpreg.html#methoddefine_keys">phpreg::define_keys()</a></strong> - Define all keys as constants
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../phpreg/phpreg.html#methodopen">phpreg::open()</a></strong> - Opens and unserializes $phpreg
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../phpreg/phpreg.html#methodremove_key">phpreg::remove_key()</a></strong> - Remove a key to the phpreg
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../phpreg/phpreg.html#methodsave">phpreg::save()</a></strong> - Serializes $phpreg and saves to file
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../phpreg/phpreg.html#methodset_key">phpreg::set_key()</a></strong> - Set a key to the phpreg, either add new or change exsiting
+		</h4> 
+
+				<br />
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Tue, 10 Feb 2004 17:38:04 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.2.3</a>
+	</div>
+</body>
+</html>

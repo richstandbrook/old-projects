@@ -1,0 +1,227 @@
+<style type="text/css">
+<!--
+body,td {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+a{
+	color:#003366;
+}
+a:hover{
+	text-decoration:none;
+}
+.code {
+	font-family: "Courier New", Courier, mono;
+	font-size: 12px;
+	color: #333333;
+	background-color: #EBEBEB;
+}
+.note {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #990000;
+	padding: 5px;
+	margin: 2px;
+	font-size: 11px;
+	border: 1px solid #FFFFFF;
+}
+.style1 {
+	font-size: 18px;
+	font-weight: bold;
+}
+ul {
+	list-style-type: square;
+}
+.style8 {font-size: 10px}
+-->
+</style>
+<body bgcolor="#FFFFFF">
+<p><span class="style1">PHP REGISTRY </span><br>
+  <span class="style8">developed by  Richard Standbrook<br>
+  <a href="http://www.opensource.org/licenses/gpl-license.php" target="_blank">Released under the GLP</a></span></p>
+<p><strong><a href="CHANGELOG">CHANGELOG<br>
+</a>  <br>
+Download:</strong></p>
+<ul>
+  <li> <a href="http://www.freshmeat.net/projects/phpreg">Freshmeat.net</a></li>
+</ul>
+<p><strong>Homepage:</strong></p>
+<ul>
+  <li><a href="http://www.koorb.co.uk">koorb.co.uk</a></li>
+</ul>
+<p><strong>Topics:</strong></p>
+<ul>
+  <li><a href="#phpregedit">Using the phpreg editor </a></li>
+  <li><a href="#phpreg">Using phpreg in your applications</a><br>
+  </li>
+</ul>
+<p>&nbsp;</p>
+<hr size="1">
+<p><span class="style1"><a name="phpregedit"></a>USING THE PHPREG EDITOR<br>
+</span><a href="#top">Back to topics </a></p>
+<p> <u>A) Set up the registry editor</u></p>
+<ol>
+  <li>Create a new file (phpregedit.php for instance). Make sure it is somewhere safe, password protected.</li>
+  <li>Add the following code;<br>
+    <br>
+    <span class="code">&lt;?php<br>
+  include('phpreg.php');<br>
+  $regedit = new phpregedit;<br>
+  <br>
+  $regedit-&gt;editor();<br>
+  ?&gt;<br>
+    </span><span class="code"><br>
+  </span> </li>
+  <li> Browse to this file on your server. You will now be shown an interface<br>
+    that will allow you to add and edit keys.<br>
+  </li>
+</ol>
+<p> <u>B) Adding keys using the editor</u></p>
+<ol>
+  <li> Browse to the phpregedit.php file on your server.</li>
+  <li>Type in the path to the registry file.
+    <ol>
+      <li> You can create a new file by entering a filename that doesnot exist<br>
+        <br>
+        <span class="note">
+        NOTE THAT PHPREG CANNOT CREATE SYSTEM DIRECTORIES <br>
+        <br>
+        </span></li>
+    </ol>
+  </li>
+  <li>At the top of the editor there are two text boxes, one button and a checkbox <br>
+    <br>   
+    <ol>
+      <li>The first text box is the KEY, how you will identify the registry key.<br>
+         This could be one word `GLOBALS` for instance, or a deep key `GLOBAL/DB/USERNAME` this structure<br>
+        will be set up automaticly.<br>
+        <br>
+      </li>
+      <li>The second text box is the value, what they key is this can be any characters.<br>
+        <br>
+      </li>
+      <li>The button will post the form to set the key<br>
+        <br>
+      </li>
+      <li> The checkbox can be ticked before submiting, to make the KEY an extension of the CURRENT path<br>
+         if you are in the path `GLOABLS` and you set a key `DB` with the `extend key` box ticked this will<br>
+         cause the structure `GLOBALS/DB` to be setup, 
+        you can the browse to `GLOBALS/DB` and set keys like, `host` etc</li>
+    </ol>
+  </li>
+</ol>
+<p><u> C) Editing keys</u></p>
+<ol>
+  <li> Follow steps 1 and 2 in part B.</li>
+  <li> To edit a value, locate the key, and change its value in the text box next to it.</li>
+  <li>Click the `update keys` button in the bottom right.<br>
+  </li>
+</ol>
+<p> <u>D) Deleting Keys</u></p>
+<ol>
+  <li>Same as C</li>
+  <li> Tick the checkbox next to any keys you wish to remove</li>
+  <li> Click the `delete keys` button at the bottom left.<br>
+    <br>
+     <span class="note">NOTE THAT ANY AND ALL CHILD KEY WILL BE REMOVED TO</span><br>
+  </li>
+</ol>
+<p class="style1">&nbsp;   </p>
+<p><a name="phpreg"></a><span class="style1">USING PHPREG IN YOUR APPLICATIONS</span><br>
+<a href="#top">Back to topics </a></p>
+<p> <u>A) Opening a phpreg file</u></p>
+<ol>
+  <li>Add the following code to your application, replace reg_file with the path to and name of your file<br>
+     if the file does not exsit, phpreg will atempt to create it.<br>
+     <br>
+     <span class="note">NOTE THAT PHPREG CANNOT CREATE SYSTEM DIRECTORIES <br>
+     </span><span class="code"><br>
+&lt;?php<br>
+     <br>
+    include('phpreg.php');<br>
+    $reg = new phpreg;<br>
+    <br>
+    $reg-&gt;open(&quot;reg_file&quot;);<br>
+    <br>
+    ?&gt;</span></li>
+</ol>
+<p><br>
+   <u>B) Defining existing keys</u></p>
+<ol>
+  <li>Follow the steps in A to open your file</li>
+  <li>Add the following code<br>
+    <br>
+  <span class="code"> $reg-&gt;define_keys();<br>
+  <br>
+  </span>Any keys you have previously set will be defined as constants 
+  for example, if you set up a structure such as;<br>
+   <pre><span class="code">|- GLOBAL/ 
+&brvbar;       |- DB/ 
+&brvbar;       |- USER = root<br>&brvbar;       |- HOST = localhost
+&brvbar;
+|- VERSION = 0.1.2<br>&brvbar;</span></pre>
+   To access the key <strong>USER</strong> for the database you would do the following.<br>
+   <br>
+   <span class="code">echo constant(&quot;GLOBALS/DB/USER&quot;);<br>
+   <br>
+   </span>This would out put &quot;root&quot;. You cannot call extended keys like this;<br>
+   <br><span class="code">
+   echo GLOBALS/DB/USER;</span><br>
+   <br>
+   The foward slashes `/` will trip up PHP and cause an error. However, if you were to use a root level key you can call it without the constant() function using the structure above the following is posible<br>
+   <br><span class="code">
+   echo VERSION</span><br>
+   <br>
+   This would output &quot;0.1.2&quot;</li>
+</ol>
+<p><u>   C) Setting a new, or changing an exsiting, key</u></p>
+<ol>
+  <li> Follow the steps to open a file in part A</li>
+  <li>Use the following code to add a new key<br>
+    <br>
+  <span class="code"> $reg-&gt;set_key(&quot;KEY_ID&quot;,&quot;key value&quot;);<br>
+  <br>
+  </span>you can also use the following<br>
+  <br>
+  <span class="code"> $reg-&gt;set_key(&quot;EXTENDED/KEY_ID&quot;,&quot;key value&quot;);<br>
+  <br>
+  </span>The structure is automatically set up.<br>
+  <br>
+  Leaving the VALUE blank<br>
+  <br>
+  <span class="code">$reg-&gt;set_key(&quot;KEY_ID&quot;);</span><br>
+  <br>
+  Will create a extended key, this can also be done in the follwing way<br>
+  <br>
+  <span class="code">$reg-&gt;set_key(&quot;EXTENDED/KEY_ID&quot;);</span><br>
+  <br>
+  <span class="note">  TO BE ABLE TO USE CONSTANTS OFKEYS SET WITH set_key() YOU MUST NEXT CALL define_keys()</span></li>
+</ol>
+<p><br>
+  <u>D) Delete a key</u></p>
+<ol>
+  <li> Open a file (see A)</li>
+  <li>The following will work with keys from the file and any set with <span class="code">set_key()</span><br>
+    <br>
+      <span class="note">NOTE THAT ANY AND ALL CHILD KEY WILL BE REMOVED TO <br>
+      <br>
+      </span>    <span class="code">$reg-&gt;delete_key(&quot;KEY_ID&quot;);<br>
+      <br>
+  </span>Also use the extened format<br>
+  <br>
+  <span class="code"> $reg-&gt;delete_key(&quot;EXTEND/KEY_ID&quot;);</span></li>
+</ol>
+<p><br>
+   <u>E) Saving the phpreg file</u><br>
+  <br>
+   Up till now all the actions in &quot;USING PHPREG IN YOUR APPLICATIONS&quot;<br>
+   have been on the `running reg`, that is nothing has been saved to a file.<br>
+   when all changes have been made (or, indeed, when ever you want)<br>
+   you can use<br>
+   <br>
+  <span class="code"> $reg-&gt;save(&quot;reg_file&quot;);</span></p>
+<p> Replacing `<span class="code">reg_file</span>` with the path and name of the file to save to.<br>
+   if the file doesnt exsist phpreg will attempt to create it<br>
+   <br>
+   <span class="note">NOTE THAT PHPREG CANNOT CREATE SYSTEM DIRECTORIES</span></p>

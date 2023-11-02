@@ -1,0 +1,9 @@
+09-02-2004 Richard Standbrook <richard@koorb.co.uk>
+    * FIXED - Session stays alive and locks you in "File cannot be found/created"
+    * ADDED - Hopefully slightly easier editor open/create dialog
+    
+05-02-2004 Richard Standbrook <richard@koorb.co.uk>
+    * FIXED - Keys with string value "0" defined as extended key paths not values
+
+04-02-2004 Richard Standbrook <richard@koorb.co.uk>
+    * FIXED - Root level keys were defined with starting `/`
